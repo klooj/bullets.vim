@@ -564,7 +564,7 @@ fun! s:set_checkbox(lnum, marker)
   endif
 endfun
 
-fun! s:toggle_checkboxes_nested()
+fun! Toggle_checkboxes_nested()
   " toggle checkbox on the current line, as well as its parents and children
   let l:lnum = line('.')
   let l:indent = indent(l:lnum)
@@ -628,7 +628,7 @@ endfun
 
 command! SelectCheckboxInside call <SID>select_checkbox(1)
 command! SelectCheckbox call <SID>select_checkbox(0)
-command! ToggleCheckbox call <SID>toggle_checkboxes_nested()
+command! ToggleCheckbox call Toggle_checkboxes_nested()
 " Checkboxes ---------------------------------------------- }}}
 
 " Roman numerals --------------------------------------------- {{{
