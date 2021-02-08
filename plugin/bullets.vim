@@ -503,7 +503,7 @@ command! InsertNewBullet call <SID>insert_new_bullet()
 " Checkboxes ---------------------------------------------- {{{
 fun! s:find_checkbox_position(lnum)
   let l:line_text = getline(a:lnum)
-  return matchend(l:line_text, '\v\s*(\*|-) \[')
+  return matchend(l:line_text, '\v\s*(\*|-|+|[1-9])\. \[')
 endfun
 
 fun! s:select_checkbox(inner)
@@ -564,7 +564,7 @@ fun! s:set_checkbox(lnum, marker)
   endif
 endfun
 
-fun! Toggle_checkboxes_nested()
+function! Toggle_checkboxes_nested()
   " toggle checkbox on the current line, as well as its parents and children
   let l:lnum = line('.')
   let l:indent = indent(l:lnum)
@@ -588,7 +588,7 @@ fun! Toggle_checkboxes_nested()
       call s:set_child_checkboxes(l:lnum, l:checked)
     endif
   endif
-endfun
+endfunction
 
 fun! s:set_parent_checkboxes(lnum, marker)
   " set the parent checkbox of line a:lnum, as well as its parents, based on
