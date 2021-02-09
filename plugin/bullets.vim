@@ -503,7 +503,7 @@ command! InsertNewBullet call <SID>insert_new_bullet()
 " Checkboxes ---------------------------------------------- {{{
 fun! s:find_checkbox_position(lnum)
   let l:line_text = getline(a:lnum)
-  return matchend(l:line_text, '\v\s*(\*|-|+|[1-9])\. \[')
+  return matchend(l:line_text, '\v\s*(\*|-) \[')
 endfun
 
 fun! s:select_checkbox(inner)
